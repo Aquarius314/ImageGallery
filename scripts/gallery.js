@@ -1,24 +1,27 @@
-
-
-
 var imgPath = "";
 var images = [];
+var galleryImageId = 0;
 
-for(var i = 1; i <= 24; i++) {
+for(var i = 1; i <= 10; i++) {
   if(i <= 20) {
     imgPath = "assets/"+i+".jpg";
+    images.push(addImage(imgPath));
   } else {
-    imgPath = "assets/"+i+".png";
+  //   imgPath = "assets/"+i+".png";
+  // images.push(addImage(imgPath));
   }
-  images.push(addImage(imgPath));
 }
 
 function leftArrow() {
-  alert("Changing to left");
-
+  if(galleryImageId > 0) {
+    galleryImageId--;
+  }
+  modalImg.src = images[galleryImageId];
 }
 
 function rightArrow() {
-  alert("Changing to right");
-  
+  if(galleryImageId < images.length-1) {
+    galleryImageId++;
+  }
+  modalImg.src = images[galleryImageId];
 }

@@ -1,7 +1,7 @@
+
 var imagePath = "";
 var modal = null;
 var modalImg = null;
-var clickedId = 0;
 
 function addImage(imgPath) {
 
@@ -14,6 +14,7 @@ function addImage(imgPath) {
   img.width = 200;
   img.height = 200;
   img.alt = imgPath;
+  img.id = images.length;
   // attach img to body
   document.body.appendChild(img);
 
@@ -27,10 +28,10 @@ function addImage(imgPath) {
     modal.style.display = "block";
     modalImg.src = this.src;
     imagePath = this.src;
-    captionText.innerHTML = this.alt;
+    captionText.innerHTML = ":)";
     e.stopPropagation();
     window.onclick = closeImg;
-    clickedId = this.src;
+    galleryImageId = this.id;
   }
 
   function closeImg() {
